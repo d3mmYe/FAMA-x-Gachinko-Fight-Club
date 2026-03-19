@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv7swn28xlqub"]
+
+[ext_resource type="Texture2D" uid="uid://51e1dq7mo4ea" path="res://Assets/CommanderImages/DeusExGambler.png" id="1_vb04f"]
+
+[node name="Commander" type="Node2D"]
+
+[node name="CommanderImage" type="Sprite2D" parent="."]
+position = Vector2(345, 739)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_vb04f")

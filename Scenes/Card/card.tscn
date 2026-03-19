@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dctui8hccs5rs"]
+
+[ext_resource type="Script" uid="uid://t6uht0r5unga" path="res://Scripts/Game/card.gd" id="1_g0nif"]
+[ext_resource type="Texture2D" uid="uid://buecn5yqx1uae" path="res://Assets/OtherSprites/cover.png" id="2_g0nif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjlel"]
+size = Vector2(150, 210)
+
+[sub_resource type="Animation" id="Animation_g0nif"]
+resource_name = "cardFlip"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ac5pp"]
+_data = {
+&"cardFlip": SubResource("Animation_g0nif")
+}
+
+[node name="Card" type="Node2D"]
+position = Vector2(1600, 890)
+script = ExtResource("1_g0nif")
+
+[node name="CardBack" type="Sprite2D" parent="."]
+
+[node name="CardImage" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("2_g0nif")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_rjlel")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ac5pp")
+}
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
