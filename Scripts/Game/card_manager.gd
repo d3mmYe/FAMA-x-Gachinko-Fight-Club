@@ -2,25 +2,30 @@ extends Node2D
 
 const COLISSION_MASK_CARD = 1
 const COLISSION_MASK_CARD_SLOT = 2
+const DEFAULT_CARD_MOVE_SPEED = 0.1
 
 var cardBeingDragged
 var screnSize
-var isHoveringOnCard
-var playerHand
+var isHoveringOnCard: bool
+var playerHandReference
 var deck
 var selectedCard
+var cardDatabaseReference
 
 func _ready() -> void:
 	screnSize = get_viewport_rect().size
-	playerHand = $"../Hand"
+	playerHandReference = $"../Hand"
 	$"../InputManager".connect("leftMouseButtonReleased", onLeftClickButtonReleased)
+	cardDatabaseReference = preload("res://Scripts/Game/card_database.gd")
 
 func _process(delta: float) -> void:
 	var mousePossition
 	
 	if cardBeingDragged:
 		mousePossition = get_global_mouse_position()
-		cardBeingDragged.position = Vector2(clamp(mousePossition.x, 0, screnSize.x), clamp(mousePossition.y, 0, screnSize.y))
+		cardBeingDragged.position = Vector2(
+			clamp(mousePossition.x, 0, screnSize.x), clamp(mousePossition.y, 0, screnSize.y)
+		)
 
 func cardClicked(card):
 	if card.cardSlotCardIsIn:
@@ -52,14 +57,18 @@ func startDrag(card):
 func finishDrag():
 	var cardSlotFound = raycastCheckForCardSlot()
 	cardBeingDragged.scale = Vector2(1.05, 1.05)
-	if cardSlotFound and not cardSlotFound.cardInSlot:
-		playerHand.removeCardFromHand(cardBeingDragged)
+	if cardSlotFound and not cardSlotFound.cardInSlot and (cardBeingDragged.cardType == cardDatabaseReference.CARD_TYPE.PROFESSIONAL_HERO or cardBeingDragged.cardType == cardDatabaseReference.CARD_TYPE.APPRENTICE_HERO or cardBeingDragged.cardType == cardDatabaseReference.CARD_TYPE.VILLAIN):
+		# Card dropped in card slot
+		cardBeingDragged.z_index = -1
+		isHoveringOnCard = false
+		cardBeingDragged.cardSlotCardIsIn = cardSlotFound
+		playerHandReference.removeCardFromHand(cardBeingDragged)
 		cardBeingDragged.position = cardSlotFound.position
-		#cardBeingDragged.get_node("Area2D/CollisionShape2D").disabled = true
+		cardBeingDragged.get_node("Area2D/CollisionShape2D").disabled = true
 		cardSlotFound.cardInSlot = true
 		$"../BattleManager".playerCardsOnField.append(cardBeingDragged)
 	else:
-		playerHand.addCardToHand(cardBeingDragged)
+		playerHandReference.addCardToHand(cardBeingDragged, DEFAULT_CARD_MOVE_SPEED)
 	cardBeingDragged = null
 
 func connectCardSignals(card):
@@ -79,8 +88,7 @@ func hoveredOverCard(card):
 
 func hoveredOffCard(card):
 	var newCardHovered
-	
-	if !cardBeingDragged:
+	if !card.cardSlotCardIsIn && !cardBeingDragged:
 		highlightCard(card, false)
 		newCardHovered = raycastCheckForCard()
 		if newCardHovered:
@@ -113,7 +121,7 @@ func raycastCheckForCard():
 	result = spaceState.intersect_point(parameters)
 	if result.size() > 0:
 		return getCardWithHighestZindex(result)
-	return 	null
+	return null
 
 func raycastCheckForCardSlot():
 	var spaceState = get_world_2d().direct_space_state
@@ -126,7 +134,7 @@ func raycastCheckForCardSlot():
 	result = spaceState.intersect_point(parameters)
 	if result.size() > 0:
 		return result[0].collider.get_parent()
-	return 	null
+	return null
 
 func getCardWithHighestZindex(cards):
 	var highestZcard = cards[0].collider.get_parent()

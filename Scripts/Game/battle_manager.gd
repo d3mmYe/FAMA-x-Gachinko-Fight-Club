@@ -1,15 +1,15 @@
 extends Node
 
-const CARD_MOVE_SPEED = 0.1
-const STARTING_HEALTH = 10
+const CARD_MOVE_SPEED: float = 0.25
+const STARTING_HEALTH: int = 10
 
 var battleTimer
 var emptyOpponentCardSlots = []
 var playerCardsOnField = []
 var opponentCardsOnField = []
 var opponentCardsOnField2 = []
-var playerHealth
-var opponentHealth
+var playerHealth: int
+var opponentHealth: int
 
 func _ready() -> void:
 	battleTimer = $"../BattleTimer"
@@ -75,20 +75,20 @@ func tryPlayCard():
 			cardWithHighestAtk = card
 	
 	tween.tween_property(cardWithHighestAtk, "position", randomEmptyOpponentCardSlot.position, CARD_MOVE_SPEED)
-	
+	cardWithHighestAtk.get_node("AnimationPlayer").play("card_flip")
 	$"../OpponentHand".removeCardFromHand(cardWithHighestAtk)
 	cardWithHighestAtk.cardSlotCardIsIn = randomEmptyOpponentCardSlot
 	opponentCardsOnField.append(cardWithHighestAtk)
 
 func attack(attackingCard, deffendingCard, attacker):
-	deffendingCard.health = deffendingCard.health - attackingCard.attack
+	deffendingCard.deffense = deffendingCard.deffense - attackingCard.deffense
 	#deffendingCard.get_node("Health").txt = str(deffendingCard.health)
-	attackingCard.health = attackingCard.health - deffendingCard.attack
+	attackingCard.deffense = attackingCard.deffense - deffendingCard.deffense
 	#attackingCard.get_node("Health").txt = str(attackingCard.health)
 	
-	if attackingCard.health <= 0:
+	if attackingCard.deffense <= 0:
 		destroyCard(attackingCard, attacker)
-	if deffendingCard.health <= 0:
+	if deffendingCard.deffense <= 0:
 		if attacker == "Player":
 			destroyCard(deffendingCard, "Opponent")
 		else:

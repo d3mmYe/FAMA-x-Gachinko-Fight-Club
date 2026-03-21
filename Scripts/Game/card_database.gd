@@ -1,4 +1,21 @@
-const CARDS = { #Mana - Attack - Range - Health
-	"LuckyStraight": 	[3, 2, 1, 2],
-	"Unit5KIND": 		[5, 5, 1, 5],
+const CARDS = { #FAMA - ATTACK - DEFFENSE - TYPE
+	"LuckyStraight": 	[3, 2, 1, CARD_TYPE.VILLAIN],
+	"Unit5KIND": 		[5, 5, 1, CARD_TYPE.PROFESSIONAL_HERO],
+}
+
+enum CARD_STATS {
+	FAMA = 0,
+	ATTACK = 1,
+	DEFFENSE = 2,
+	TYPE = 3,
+}
+
+enum CARD_TYPE {
+	#PROTAGONIST,
+	PROFESSIONAL_HERO,
+	APPRENTICE_HERO,
+	VILLAIN,
+	LESSON,
+	EVENT,
+	UPGRADE,
 }

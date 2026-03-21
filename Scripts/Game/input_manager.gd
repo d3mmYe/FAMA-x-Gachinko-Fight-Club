@@ -28,15 +28,18 @@ func raycastAtCursor():
 	var parameters = PhysicsPointQueryParameters2D.new()
 	var result
 	var resultColisionMask
+	var cardFound
 	
 	parameters.position = get_global_mouse_position()
 	parameters.collide_with_areas = true
 	result = spaceState.intersect_point(parameters)
 	if result.size() > 0:
 		resultColisionMask = result[0].collider.collision_mask
-		if resultColisionMask ==COLISSION_MASK_CARD:
-			var cardFound = result[0].collider.get_parent()
+		if resultColisionMask == COLISSION_MASK_CARD:
+			# Card clicked
+			cardFound = result[0].collider.get_parent()
 			if cardFound:
 				cardManagerReference.cardClicked(cardFound)
-		#elif resultColisionMask == COLISSION_MASK_DECK:
-			#deckReference.drawCard()
+		elif resultColisionMask == COLISSION_MASK_DECK:
+			# Deck clicked
+			deckReference.drawCard()

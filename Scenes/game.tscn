@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bo1txfq06dsg8"]
+[gd_scene format=3 uid="uid://bo1txfq06dsg8"]
 
 [ext_resource type="Script" uid="uid://qyfsvsiwgsrt" path="res://Scripts/Game/card_manager.gd" id="1_v158k"]
 [ext_resource type="Script" uid="uid://bmmhlgnpx8uoj" path="res://Scripts/Game/input_manager.gd" id="2_h4fw4"]
@@ -16,41 +16,39 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(144, 192)
 
-[sub_resource type="GDScript" id="GDScript_i6g32"]
+[node name="Game" type="Node2D" unique_id=815886379]
 
-[node name="Game" type="Node2D"]
-
-[node name="CardManager" type="Node2D" parent="."]
+[node name="CardManager" type="Node2D" parent="." unique_id=1509115839]
 script = ExtResource("1_v158k")
 
-[node name="InputManager" type="Node2D" parent="."]
+[node name="InputManager" type="Node2D" parent="." unique_id=385996811]
 script = ExtResource("2_h4fw4")
 
-[node name="Hand" type="Node2D" parent="."]
+[node name="Hand" type="Node2D" parent="." unique_id=1258604714]
 script = ExtResource("3_ldgsr")
 
-[node name="OpponentHand" type="Node2D" parent="."]
+[node name="OpponentHand" type="Node2D" parent="." unique_id=1776309254]
 script = ExtResource("4_ldgsr")
 
-[node name="Deck" type="Node2D" parent="."]
+[node name="Deck" type="Node2D" parent="." unique_id=641381663]
 position = Vector2(1275, 741.00006)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("4_o5yvi")
 
-[node name="Sprite2D" type="Sprite2D" parent="Deck"]
+[node name="Sprite2D" type="Sprite2D" parent="Deck" unique_id=1350106426]
 z_index = -2
 position = Vector2(-3.0517578e-05, -9.536743e-07)
-scale = Vector2(0.3, 0.27428573)
+scale = Vector2(0.1, 0.091)
 texture = ExtResource("5_rku1e")
 
-[node name="Area2D" type="Area2D" parent="Deck"]
+[node name="Area2D" type="Area2D" parent="Deck" unique_id=273864409]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D" unique_id=1994616739]
 shape = SubResource("RectangleShape2D_kry3j")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Deck"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Deck" unique_id=2017952159]
 z_index = -2
 offset_left = -17.999878
 offset_top = -17.0
@@ -62,18 +60,18 @@ tab_size = 2
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="OpponentDeck" type="Node2D" parent="."]
+[node name="OpponentDeck" type="Node2D" parent="." unique_id=1666964885]
 position = Vector2(645, 228)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("6_h4fw4")
 
-[node name="Sprite2D" type="Sprite2D" parent="OpponentDeck"]
+[node name="Sprite2D" type="Sprite2D" parent="OpponentDeck" unique_id=2054568335]
 z_index = -2
 position = Vector2(-3.0517578e-05, -9.536743e-07)
-scale = Vector2(0.3, 0.27428573)
+scale = Vector2(0.1, 0.091)
 texture = ExtResource("5_rku1e")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="OpponentDeck"]
+[node name="RichTextLabel" type="RichTextLabel" parent="OpponentDeck" unique_id=1770578260]
 z_index = -2
 offset_left = -17.999878
 offset_top = -17.0
@@ -85,84 +83,84 @@ tab_size = 2
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Commander" parent="." instance=ExtResource("8_o5yvi")]
+[node name="Commander" parent="." unique_id=466952355 instance=ExtResource("8_o5yvi")]
 position = Vector2(645, 739)
 
-[node name="OpponentCommander" type="Node2D" parent="."]
+[node name="OpponentCommander" type="Node2D" parent="." unique_id=490798354]
 position = Vector2(645, 739)
 
-[node name="Sprite2D" type="Sprite2D" parent="OpponentCommander"]
+[node name="Sprite2D" type="Sprite2D" parent="OpponentCommander" unique_id=199220843]
 position = Vector2(630, -511)
 rotation = 3.1415927
 scale = Vector2(0.075, 0.075)
 
-[node name="HoldedCardInfo" type="Node2D" parent="."]
-script = SubResource("GDScript_i6g32")
+[node name="HoldedCardInfo" type="Node2D" parent="." unique_id=1404095520]
 
-[node name="Sprite2D" type="Sprite2D" parent="HoldedCardInfo"]
+[node name="Sprite2D" type="Sprite2D" parent="HoldedCardInfo" unique_id=90460318]
 position = Vector2(224.00002, 415.00003)
 scale = Vector2(0.25, 0.25)
 
-[node name="CardSlots" type="Node2D" parent="."]
+[node name="CardSlots" type="Node2D" parent="." unique_id=2091017440]
 
-[node name="PlayerCardSlots" type="Node2D" parent="CardSlots"]
+[node name="PlayerCardSlots" type="Node2D" parent="CardSlots" unique_id=1138105394]
 
-[node name="PlayerFrontLeft" parent="CardSlots/PlayerCardSlots" instance=ExtResource("8_nb51f")]
+[node name="PlayerFrontLeft" parent="CardSlots/PlayerCardSlots" unique_id=1909580107 instance=ExtResource("8_nb51f")]
 position = Vector2(798, 569)
 
-[node name="PlayerFrontCenter" parent="CardSlots/PlayerCardSlots" instance=ExtResource("8_nb51f")]
+[node name="PlayerFrontCenter" parent="CardSlots/PlayerCardSlots" unique_id=1919777337 instance=ExtResource("8_nb51f")]
 position = Vector2(958, 569)
 
-[node name="PlayerFrontRight" parent="CardSlots/PlayerCardSlots" instance=ExtResource("8_nb51f")]
+[node name="PlayerFrontRight" parent="CardSlots/PlayerCardSlots" unique_id=892368649 instance=ExtResource("8_nb51f")]
 position = Vector2(1118, 569)
 
-[node name="PlayerBackLeft" parent="CardSlots/PlayerCardSlots" instance=ExtResource("8_nb51f")]
+[node name="PlayerBackLeft" parent="CardSlots/PlayerCardSlots" unique_id=1245568945 instance=ExtResource("8_nb51f")]
 position = Vector2(798, 739)
 
-[node name="PlayerBackCenter" parent="CardSlots/PlayerCardSlots" instance=ExtResource("8_nb51f")]
+[node name="PlayerBackCenter" parent="CardSlots/PlayerCardSlots" unique_id=276756719 instance=ExtResource("8_nb51f")]
 position = Vector2(958, 739)
 
-[node name="PlayerBackRight" parent="CardSlots/PlayerCardSlots" instance=ExtResource("8_nb51f")]
+[node name="PlayerBackRight" parent="CardSlots/PlayerCardSlots" unique_id=1552571606 instance=ExtResource("8_nb51f")]
 position = Vector2(1118, 739)
 
-[node name="OpponentCardSlots" type="Node2D" parent="CardSlots"]
+[node name="OpponentCardSlots" type="Node2D" parent="CardSlots" unique_id=388105065]
 
-[node name="OpponentFrontLeft" parent="CardSlots/OpponentCardSlots" instance=ExtResource("7_1l0tm")]
+[node name="OpponentFrontLeft" parent="CardSlots/OpponentCardSlots" unique_id=1158996367 instance=ExtResource("7_1l0tm")]
 position = Vector2(958, 228)
 
-[node name="OpponentFrontCenter" parent="CardSlots/OpponentCardSlots" instance=ExtResource("7_1l0tm")]
+[node name="OpponentFrontCenter" parent="CardSlots/OpponentCardSlots" unique_id=219444644 instance=ExtResource("7_1l0tm")]
 position = Vector2(798, 228)
 
-[node name="OpponentFrontRight" parent="CardSlots/OpponentCardSlots" instance=ExtResource("7_1l0tm")]
+[node name="OpponentFrontRight" parent="CardSlots/OpponentCardSlots" unique_id=766535882 instance=ExtResource("7_1l0tm")]
 position = Vector2(1118, 228)
 
-[node name="OpponentBackLeft" parent="CardSlots/OpponentCardSlots" instance=ExtResource("7_1l0tm")]
+[node name="OpponentBackLeft" parent="CardSlots/OpponentCardSlots" unique_id=2129225211 instance=ExtResource("7_1l0tm")]
 position = Vector2(798, 400)
 
-[node name="OpponentBackCenter" parent="CardSlots/OpponentCardSlots" instance=ExtResource("7_1l0tm")]
+[node name="OpponentBackCenter" parent="CardSlots/OpponentCardSlots" unique_id=1746336182 instance=ExtResource("7_1l0tm")]
 position = Vector2(958, 400)
 
-[node name="OpponentBackRight" parent="CardSlots/OpponentCardSlots" instance=ExtResource("7_1l0tm")]
+[node name="OpponentBackRight" parent="CardSlots/OpponentCardSlots" unique_id=354094812 instance=ExtResource("7_1l0tm")]
 position = Vector2(1118, 400)
 
-[node name="Graveyard" type="Node2D" parent="."]
+[node name="Graveyard" type="Node2D" parent="." unique_id=1155144971]
+z_index = -2
 position = Vector2(1275, 560)
 scale = Vector2(0.75, 0.75)
 
-[node name="CardSlotImage" type="Sprite2D" parent="Graveyard"]
+[node name="CardSlotImage" type="Sprite2D" parent="Graveyard" unique_id=214236025]
 scale = Vector2(0.1, 0.096)
 texture = ExtResource("11_rku1e")
 
-[node name="OpponentGraveyard" type="Node2D" parent="."]
+[node name="OpponentGraveyard" type="Node2D" parent="." unique_id=770562846]
 position = Vector2(645, 400)
 rotation = 3.1415927
 scale = Vector2(0.75, 0.75)
 
-[node name="CardSlotImage" type="Sprite2D" parent="OpponentGraveyard"]
+[node name="CardSlotImage" type="Sprite2D" parent="OpponentGraveyard" unique_id=1699031963]
 scale = Vector2(0.1, 0.096)
 texture = ExtResource("11_rku1e")
 
-[node name="EndTurnButton" type="Button" parent="."]
+[node name="EndTurnButton" type="Button" parent="." unique_id=1535239460]
 offset_left = 480.0
 offset_top = 485.0
 offset_right = 558.0
@@ -170,7 +168,7 @@ offset_bottom = 516.0
 text = "End Turn"
 metadata/_edit_use_anchors_ = true
 
-[node name="BattleButton" type="Button" parent="."]
+[node name="BattleButton" type="Button" parent="." unique_id=1230296394]
 offset_left = 1360.0
 offset_top = 464.0
 offset_right = 1438.0
@@ -178,20 +176,20 @@ offset_bottom = 495.0
 text = "Battle"
 metadata/_edit_use_anchors_ = true
 
-[node name="BattleManager" type="Node" parent="."]
+[node name="BattleManager" type="Node" parent="." unique_id=1850157854]
 script = ExtResource("9_ldgsr")
 
-[node name="BattleTimer" type="Timer" parent="."]
+[node name="BattleTimer" type="Timer" parent="." unique_id=287078014]
 one_shot = true
 
-[node name="PlayerHealth" type="RichTextLabel" parent="."]
+[node name="PlayerHealth" type="RichTextLabel" parent="." unique_id=462407142]
 offset_left = 640.0
 offset_top = 560.0
 offset_right = 680.0
 offset_bottom = 600.0
 text = "0"
 
-[node name="OpponentHealth" type="RichTextLabel" parent="."]
+[node name="OpponentHealth" type="RichTextLabel" parent="." unique_id=858878010]
 offset_left = 1264.0
 offset_top = 352.0
 offset_right = 1304.0

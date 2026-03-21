@@ -1,22 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpgvyn4gkajev"]
+[gd_scene format=3 uid="uid://cpgvyn4gkajev"]
 
 [ext_resource type="Script" uid="uid://cy2dy23s375t0" path="res://Scripts/MainMenu/main_menu.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://bo1txfq06dsg8" path="res://Scenes/game.tscn" id="1_jjgbg"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=2056787165]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_bo1nx")
 
-[node name="Game" parent="." instance=ExtResource("1_jjgbg")]
+[node name="Game" parent="." unique_id=1747046621 instance=ExtResource("1_jjgbg")]
 visible = false
 
-[node name="BgImage" type="Panel" parent="."]
+[node name="BgImage" type="Panel" parent="." unique_id=180029511]
 layout_mode = 0
 offset_right = 1928.0
 offset_bottom = 1104.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=379099702]
 layout_mode = 1
 offset_left = 816.0
 offset_top = 516.0
@@ -24,21 +24,21 @@ offset_right = 1094.0
 offset_bottom = 701.0
 alignment = 1
 
-[node name="StartGame" type="Button" parent="VBoxContainer"]
+[node name="StartGame" type="Button" parent="VBoxContainer" unique_id=29043665]
 layout_mode = 2
 text = "Empezar Partida"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=850183085]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Opciones"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1377843687]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Salir"
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=1788162572]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

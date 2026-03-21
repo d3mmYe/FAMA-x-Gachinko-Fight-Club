@@ -1,7 +1,8 @@
 extends Node2D
 
 var handPosition
-var cardName = ""
-var health
+var cardName
+var deffense
 var attack
-var cardSlotCardIsIn 
+var cardType
+var cardSlotCardIsIn

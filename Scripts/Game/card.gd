@@ -5,11 +5,13 @@ signal hovered_off
 
 var handPosition
 var cardName = ""
-var health
+var deffense
 var attack
+var cardType
 var cardSlotCardIsIn
 
 func _ready() -> void:
+# All cards must be a child of card_manager
 	get_parent().connectCardSignals(self)
 
 func _on_area_2d_mouse_entered() -> void:

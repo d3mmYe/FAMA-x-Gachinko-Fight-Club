@@ -1,28 +1,200 @@
-[gd_scene load_steps=5 format=3 uid="uid://cislkdja7h7xx"]
+[gd_scene format=3 uid="uid://cislkdja7h7xx"]
 
 [ext_resource type="Script" uid="uid://mg6maqwuuxuq" path="res://Scripts/Game/opponent_card.gd" id="1_so8a0"]
 [ext_resource type="Texture2D" uid="uid://buecn5yqx1uae" path="res://Assets/OtherSprites/cover.png" id="2_vfg7d"]
 
+[sub_resource type="Animation" id="Animation_ac5pp"]
+length = 1.9333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attack:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Deffense:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardBack:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.07533327, 0.07523811)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardBack:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardImage:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CardImage:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.075333335, 0.0747619)]
+}
+
 [sub_resource type="Animation" id="Animation_g0nif"]
 resource_name = "cardFlip"
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ac5pp"]
-_data = {
-&"cardFlip": SubResource("Animation_g0nif")
+[sub_resource type="Animation" id="Animation_c0g18"]
+resource_name = "card_flip"
+length = 0.26666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attack:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Deffense:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardBack:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.07533327, 0.07523811), Vector2(0.0153333545, 0.07523807), Vector2(0.07533327, 0.07523811)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardBack:z_index")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0009999999, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 0, -1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CardImage:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0009999999, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [-1, -1, -1, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CardImage:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.075333335, 0.0747619), Vector2(0.015333276, 0.075238094), Vector2(0.075333335, 0.0747619)]
 }
 
-[node name="Card" type="Node2D"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_so8a0"]
+_data = {
+&"RESET": SubResource("Animation_ac5pp"),
+&"cardFlip": SubResource("Animation_g0nif"),
+&"card_flip": SubResource("Animation_c0g18")
+}
+
+[node name="Card" type="Node2D" unique_id=1664458322]
 position = Vector2(645, 228)
 script = ExtResource("1_so8a0")
 
-[node name="CardBack" type="Sprite2D" parent="."]
-
-[node name="CardImage" type="Sprite2D" parent="."]
-z_index = -1
-scale = Vector2(0.075, 0.075)
+[node name="CardBack" type="Sprite2D" parent="." unique_id=974474996]
+scale = Vector2(0.07533327, 0.07523811)
 texture = ExtResource("2_vfg7d")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ac5pp")
-}
+[node name="CardImage" type="Sprite2D" parent="." unique_id=2143445618]
+z_index = -1
+scale = Vector2(0.075333335, 0.0747619)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1947019280]
+libraries/ = SubResource("AnimationLibrary_so8a0")
+
+[node name="Attack" type="RichTextLabel" parent="." unique_id=945157724]
+modulate = Color(1, 1, 1, 0)
+offset_left = -53.0
+offset_top = 55.0
+offset_right = -30.0
+offset_bottom = 78.0
+text = "0"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Deffense" type="RichTextLabel" parent="." unique_id=1860053770]
+modulate = Color(1, 1, 1, 0)
+offset_left = 29.0
+offset_top = 55.0
+offset_right = 52.0
+offset_bottom = 78.0
+text = "0"
+fit_content = true
+horizontal_alignment = 1
