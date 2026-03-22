@@ -9,6 +9,7 @@ var deffense
 var attack
 var cardType
 var cardSlotCardIsIn
+var defeated = false
 
 func _ready() -> void:
 # All cards must be a child of card_manager

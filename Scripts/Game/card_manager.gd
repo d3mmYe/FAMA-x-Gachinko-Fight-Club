@@ -29,26 +29,29 @@ func _process(delta: float) -> void:
 
 func cardClicked(card):
 	if card.cardSlotCardIsIn:
-		if $"../BattleManager".opponentCardsOnField.size() == 0:
-			$"../BattleManager".directAttack(card, "Player")
-			return
-		else:
-			selectCardForBattle(card)
+		if !$"../BattleManager".isOpponentsTurn:
+			if !$"../BattleManager".playerIsAttacking:
+				if card not in $"../BattleManager".playerCardsThatAttackedThisTurn:
+					if $"../BattleManager".opponentCardsOnField.size() == 0:
+						$"../BattleManager".directAttack(card, "Player")
+						return
+					else:
+						selectCardForBattle(card)
 	else:
 		startDrag(card)
 
 func selectCardForBattle(card):
 	if selectedCard:
 		if selectedCard == card:
-			card.position += 20
+			card.position.y += 20
 			selectedCard = null
 		else:
-			selectedCard.position += 20
+			selectedCard.position.y += 20
 			selectedCard = card
-			card.position -= 20
+			card.position.y -= 20
 	else:
 		selectedCard = card
-		card.position -= 20
+		card.position.y -= 20
 
 func startDrag(card):
 	card.scale = Vector2(1, 1)
@@ -64,12 +67,17 @@ func finishDrag():
 		cardBeingDragged.cardSlotCardIsIn = cardSlotFound
 		playerHandReference.removeCardFromHand(cardBeingDragged)
 		cardBeingDragged.position = cardSlotFound.position
-		cardBeingDragged.get_node("Area2D/CollisionShape2D").disabled = true
 		cardSlotFound.cardInSlot = true
+		cardSlotFound.get_node("Area2D/CollisionShape2D").disabled = true
 		$"../BattleManager".playerCardsOnField.append(cardBeingDragged)
 	else:
 		playerHandReference.addCardToHand(cardBeingDragged, DEFAULT_CARD_MOVE_SPEED)
 	cardBeingDragged = null
+
+func unselectSelectedCards():
+	if selectedCard:
+		selectedCard.position.y += 20
+		selectedCard = null
 
 func connectCardSignals(card):
 	card.connect("hovered", hoveredOverCard)
@@ -84,31 +92,33 @@ func hoveredOverCard(card):
 		return
 	if !isHoveringOnCard:
 		isHoveringOnCard = true
-		highlightCard(card, true)
+		#highlightCard(card, true)
 
 func hoveredOffCard(card):
 	var newCardHovered
-	if !card.cardSlotCardIsIn && !cardBeingDragged:
-		highlightCard(card, false)
-		newCardHovered = raycastCheckForCard()
-		if newCardHovered:
-			highlightCard(newCardHovered, true)
-		else:
-			isHoveringOnCard = false
+	if !card.defeated:
+		if !card.cardSlotCardIsIn && !cardBeingDragged:
+			#highlightCard(card, false)
+			newCardHovered = raycastCheckForCard()
+			if newCardHovered:
+				#highlightCard(newCardHovered, true)
+				pass
+			else:
+				isHoveringOnCard = false
 
-func highlightCard(card, hovered):
-	if hovered:
-		card.scale = Vector2(1.05, 1.05)
-		card.z_index = 2
-		$"../HoldedCardInfo/Sprite2D".texture = loadCardArt(card.cardName)
-		
-	else:
-		card.scale = Vector2(1, 1)
-		card.z_index = 1
-		$"../HoldedCardInfo/Sprite2D".texture = null
+#func highlightCard(card, hovered):
+	#if hovered:
+		#card.scale = Vector2(1.05, 1.05)
+		#card.z_index = 2
+		#$"../HoldedCardInfo/Sprite2D".texture = loadCardArt(card.cardName)
+		#
+	#else:
+		#card.scale = Vector2(1, 1)
+		#card.z_index = 1
+		#$"../HoldedCardInfo/Sprite2D".texture = null
 
-func loadCardArt(cardName):
-	return load(str("res://Assets/CardImages/" + cardName + ".png"))
+#func loadCardArt(cardName):
+	#return load(str("res://Assets/CardImages/" + cardName + ".png"))
 
 func raycastCheckForCard():
 	var spaceState = get_world_2d().direct_space_state

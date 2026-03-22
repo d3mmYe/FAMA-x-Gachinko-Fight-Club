@@ -152,6 +152,7 @@ scale = Vector2(0.1, 0.096)
 texture = ExtResource("11_rku1e")
 
 [node name="OpponentGraveyard" type="Node2D" parent="." unique_id=770562846]
+z_index = -2
 position = Vector2(645, 400)
 rotation = 3.1415927
 scale = Vector2(0.75, 0.75)
