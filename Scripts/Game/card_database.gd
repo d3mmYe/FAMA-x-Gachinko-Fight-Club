@@ -1,6 +1,12 @@
-const CARDS = { #FAMA - ATTACK - DEFFENSE - TYPE
-	"LuckyStraight": 	[3, 2, 1, CARD_TYPE.VILLAIN],
-	"Unit5KIND": 		[5, 5, 1, CARD_TYPE.PROFESSIONAL_HERO],
+const CHARACTER_CARDS = { #FAMA - ATTACK - DEFFENSE - TYPE
+	"Restless Gambler": 	[2, 2, 2, CARD_TYPE.APPRENTICE_HERO],
+	"Mila Muzari": 			[2, 1, 3, CARD_TYPE.APPRENTICE_HERO],
+	"Building Looker": 		[2, 3, 1, CARD_TYPE.APPRENTICE_HERO],
+	"Barnie Steel": 		[2, 0, 4, CARD_TYPE.APPRENTICE_HERO],
+}
+
+const SUPPORT_CARDS = { #FAMA - TYPE
+	"": [3, CARD_TYPE.LESSON]
 }
 
 enum CARD_STATS {

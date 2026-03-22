@@ -6,8 +6,8 @@ const STARTING_HAND_SIZE = 4
 const CARD_DRAW_SPEED = 0.25
 
 var cardManagerReference
-var commander = "DeusExGambler"
-var deck = ["Unit5KIND", "Unit5KIND", "Unit5KIND", "LuckyStraight", "LuckyStraight", "LuckyStraight", "LuckyStraight"]
+var commander = "Hakari Kinji"
+var deck = ["Restless Gambler", "Mila Muzari", "Barnie Steel", "Building Looker", "Restless Gambler", "Mila Muzari", "Barnie Steel", "Building Looker", "Restless Gambler", "Mila Muzari", "Barnie Steel", "Building Looker"]
 var cardDatabaseReference = preload("res://Scripts/Game/card_database.gd")
 var cardDrawnName = null
 
@@ -34,12 +34,12 @@ func drawCard():
 	newCard.name = cardDrawnName
 	#newCard.get_node("CardImage").texture = cardManagerReference.loadCardArt(cardDrawnName)
 	var cardImagePath = str("res://Assets/CardImages/" + cardDrawnName + ".png")
-	newCard.attack = cardDatabaseReference.CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.ATTACK]
-	newCard.deffense = cardDatabaseReference.CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.DEFFENSE]
-	newCard.cardType = cardDatabaseReference.CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.TYPE]
+	newCard.attack = cardDatabaseReference.CHARACTER_CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.ATTACK]
+	newCard.deffense = cardDatabaseReference.CHARACTER_CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.DEFFENSE]
+	newCard.cardType = cardDatabaseReference.CHARACTER_CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.TYPE]
 	newCard.get_node("CardImage").texture = load(cardImagePath)
-	newCard.get_node("Attack").text = str(cardDatabaseReference.CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.ATTACK])
-	newCard.get_node("Deffense").text = str(cardDatabaseReference.CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.DEFFENSE])
+	newCard.get_node("Attack").text = str(cardDatabaseReference.CHARACTER_CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.ATTACK])
+	newCard.get_node("Deffense").text = str(cardDatabaseReference.CHARACTER_CARDS[cardDrawnName][cardDatabaseReference.CARD_STATS.DEFFENSE])
 	$"../CardManager".add_child(newCard)
 	$"../OpponentHand".addCardToHand(newCard, CARD_DRAW_SPEED)
 	#newCard.get_node("AnimationPlayer").play("card_flip")

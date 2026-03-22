@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://buecn5yqx1uae" path="res://Assets/OtherSprites/cover.png" id="2_vfg7d"]
 
 [sub_resource type="Animation" id="Animation_ac5pp"]
-length = 1.9333333
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -184,9 +184,10 @@ libraries/ = SubResource("AnimationLibrary_so8a0")
 
 [node name="Attack" type="RichTextLabel" parent="." unique_id=945157724]
 modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
 offset_left = -53.0
 offset_top = 55.0
-offset_right = -30.0
+offset_right = -1.0
 offset_bottom = 78.0
 text = "0"
 fit_content = true
@@ -194,9 +195,10 @@ horizontal_alignment = 1
 
 [node name="Deffense" type="RichTextLabel" parent="." unique_id=1860053770]
 modulate = Color(1, 1, 1, 0)
-offset_left = 29.0
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1.0
 offset_top = 55.0
-offset_right = 52.0
+offset_right = 55.0
 offset_bottom = 78.0
 text = "0"
 fit_content = true

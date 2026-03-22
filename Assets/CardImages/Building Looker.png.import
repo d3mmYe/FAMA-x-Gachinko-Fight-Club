@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pikfs5ngk5q1"
-path="res://.godot/imported/LuckyStraight.png-bcc274c26be287745956a038e2d3e0eb.ctex"
+uid="uid://fhwayyiqpbk0"
+path="res://.godot/imported/Building Looker.png-fc399edd2de909192ae23426e8a7bca2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CardImages/LuckyStraight.png"
-dest_files=["res://.godot/imported/LuckyStraight.png-bcc274c26be287745956a038e2d3e0eb.ctex"]
+source_file="res://Assets/CardImages/Building Looker.png"
+dest_files=["res://.godot/imported/Building Looker.png-fc399edd2de909192ae23426e8a7bca2.ctex"]
 
 [params]
 

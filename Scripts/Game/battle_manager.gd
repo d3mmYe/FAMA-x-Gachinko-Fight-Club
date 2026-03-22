@@ -66,6 +66,7 @@ func opponentTurn():
 func opponentCardSelected(deffendingCard):
 	var attackingCard = $"../CardManager".selectedCard
 	if attackingCard and deffendingCard in opponentCardsOnField and not playerIsAttacking:
+		$"../CardManager".selectedCard = null
 		attack(attackingCard, deffendingCard, "Player")
 
 func tryPlayCard():

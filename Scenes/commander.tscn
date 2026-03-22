@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv7swn28xlqub"]
 
-[ext_resource type="Texture2D" uid="uid://51e1dq7mo4ea" path="res://Assets/CommanderImages/DeusExGambler.png" id="1_vb04f"]
+[ext_resource type="Texture2D" uid="uid://51e1dq7mo4ea" path="res://Assets/ProtagonistImages/Hakari Kinji.png" id="1_vb04f"]
 
 [node name="Commander" type="Node2D" unique_id=124586228]
 position = Vector2(345, 739)

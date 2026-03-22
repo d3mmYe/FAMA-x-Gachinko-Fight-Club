@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6rh3dc0enb3f"
-path="res://.godot/imported/Unit5KIND.png-817160d4c047928f2c1ed74308bc567d.ctex"
+path="res://.godot/imported/Restless Gambler.png-e7681df550a0395e1d3c6a5a05eca6ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CardImages/Unit5KIND.png"
-dest_files=["res://.godot/imported/Unit5KIND.png-817160d4c047928f2c1ed74308bc567d.ctex"]
+source_file="res://Assets/CardImages/Restless Gambler.png"
+dest_files=["res://.godot/imported/Restless Gambler.png-e7681df550a0395e1d3c6a5a05eca6ab.ctex"]
 
 [params]
 
