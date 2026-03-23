@@ -25,3 +25,5 @@ enum CARD_TYPE {
 	EVENT,
 	UPGRADE,
 }
+
+const default_deck = ["Restless Gambler", "Mila Muzari", "Barnie Steel", "Building Looker", "Restless Gambler", "Mila Muzari", "Barnie Steel", "Building Looker", "Restless Gambler", "Mila Muzari", "Barnie Steel", "Building Looker"]
