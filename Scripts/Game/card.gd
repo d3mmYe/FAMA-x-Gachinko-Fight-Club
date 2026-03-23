@@ -7,6 +7,7 @@ var handPosition
 var cardName = ""
 var deffense
 var attack
+var effectScript
 var cardType
 var cardSlotCardIsIn
 var defeated = false

@@ -58,9 +58,9 @@ func opponentTurn():
 		for card in opponentAttackingCards:
 			if playerCardsOnField.size() != 0:
 				deffendingCard = playerCardsOnField.pick_random()
-				attack(card, deffendingCard, "Opponent")
+				await attack(card, deffendingCard, "Opponent")
 			else:
-				directAttack(card, "Opponent")
+				await directAttack(card, "Opponent")
 	endOpponentTurn()
 
 func opponentCardSelected(deffendingCard):
@@ -82,8 +82,9 @@ func tryPlayCard():
 	emptyOpponentCardSlots.erase(randomEmptyOpponentCardSlot)
 	
 	for card in opponentHand:
-		if card.attack > cardWithHighestAtk.attack:
-			cardWithHighestAtk = card
+		if card.attack:
+			if card.attack > cardWithHighestAtk.attack:
+				cardWithHighestAtk = card
 	
 	tween.tween_property(cardWithHighestAtk, "position", randomEmptyOpponentCardSlot.position, CARD_MOVE_SPEED)
 	cardWithHighestAtk.get_node("AnimationPlayer").play("card_flip")

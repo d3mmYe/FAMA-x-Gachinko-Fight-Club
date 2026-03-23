@@ -7,8 +7,8 @@ const CARD_DRAW_SPEED = 0.25
 
 var cardManagerReference
 var commander = "Hakari Kinji"
-var deck = ["Restless Gambler", "Mila Muzari", "Barnie Steel", "Building Looker", "Restless Gambler", "Mila Muzari", "Barnie Steel", "Building Looker", "Restless Gambler", "Mila Muzari", "Barnie Steel", "Building Looker"]
 var cardDatabaseReference = preload("res://Scripts/Game/card_database.gd")
+var deck = cardDatabaseReference.default_deck.duplicate()
 var cardDrawnName = null
 
 func _ready() -> void:
